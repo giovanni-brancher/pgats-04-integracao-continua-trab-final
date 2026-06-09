@@ -6,7 +6,7 @@ on:
       - master
   workflow_dispatch:
   schedule:
-    - cron: '35 23 * * *'  # Diariamente às 23:35 UTC
+    - cron: '40 2 * * *'  # Diariamente às 23:40 BRT (02:40 UTC)
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
