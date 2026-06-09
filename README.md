@@ -22,8 +22,10 @@ A pipeline está definida em `.github/workflows/ci.yml` e contempla:
 
 Além dos gatilhos, a pipeline:
 - Executa os testes automatizados com **Mocha**
-- Gera um relatório de testes no formato XML (JUnit)
+- Gera um relatório de testes no formato XML (JUnit) via `mocha-junit-reporter`
 - Armazena o relatório como **artifact** no GitHub Actions
+
+Para uso local, o projeto também oferece geração de relatório HTML interativo via **mochawesome**.
 
 ---
 
@@ -35,6 +37,7 @@ Além dos gatilhos, a pipeline:
 - **Triggers (gatilhos):** eventos que disparam a execução do workflow (`push`, `workflow_dispatch`, `schedule`).
 - **Artifacts:** arquivos gerados durante a execução da pipeline e armazenados para consulta posterior (ex.: relatório de testes).
 - **Testes automatizados:** validação do comportamento do código de forma automatizada, parte fundamental do processo de CI.
+- **mochawesome:** reporter para Mocha que gera relatórios HTML interativos e visuais, úteis para análise local dos resultados dos testes.
 
 ---
 
@@ -48,7 +51,10 @@ src/
   ServicoDePagamento.js         # Classe principal
 test/
   ServicoDePagamento.test.js    # Testes unitários (Mocha)
+mochawesome-report/             # Relatório HTML gerado localmente (ignorado pelo git)
+test-results/                   # Relatório XML gerado no CI (ignorado pelo git)
 package.json
+.mocharc.json                   # Configuração do Mocha
 ```
 
 ---
@@ -69,3 +75,19 @@ npm install
 ```bash
 npm test
 ```
+
+## Gerando relatório HTML local
+
+```bash
+npm run test:report
+```
+
+O relatório será gerado em `mochawesome-report/mochawesome.html`. Abra o arquivo no navegador para visualizar os resultados de forma interativa.
+
+## Gerando relatório XML (formato CI)
+
+```bash
+npm run test:ci
+```
+
+Gera `test-results/results.xml` no formato JUnit, compatível com pipelines de CI.
