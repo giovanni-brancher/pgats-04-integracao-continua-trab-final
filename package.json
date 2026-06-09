@@ -1,0 +1,14 @@
+{
+  "name": "04-trab-final-integracao-continua",
+  "version": "1.0.0",
+  "description": "Trabalho final da disciplina de Integração Contínua para Automação de Testes",
+  "main": "src/ServicoDePagamento.js",
+  "scripts": {
+    "test": "mocha test/**/*.test.js",
+    "test:ci": "mocha test/**/*.test.js --reporter mocha-junit-reporter --reporter-options mochaFile=./test-results/results.xml"
+  },
+  "devDependencies": {
+    "mocha": "^10.4.0",
+    "mocha-junit-reporter": "^2.2.1"
+  }
+}
