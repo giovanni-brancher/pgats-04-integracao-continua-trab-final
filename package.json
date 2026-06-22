@@ -5,7 +5,7 @@
   "main": "src/ServicoDePagamento.js",
   "scripts": {
     "test": "mocha test/**/*.test.js",
-    "test:report": "mocha test/**/*.test.js --reporter mochawesome --reporter-options reportDir=mochawesome-report,overwrite=true,html=true,json=true",
+    "test:report": "mocha test/**/*.test.js --reporter mochawesome --reporter-options reportDir=mochawesome-report,reportFilename=index,overwrite=true,html=true,json=true",
     "test:ci": "mocha test/**/*.test.js --reporter mocha-junit-reporter --reporter-options mochaFile=./test-results/results.xml",
     "test:coverage": "nyc mocha test/**/*.test.js",
     "lint": "eslint src/ test/"
